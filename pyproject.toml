@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "seventhlesson"
+version = "0.1.0"
+description = ""
+authors = ["vna2rew <vlade.voronin@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+telegram = "^0.0.1"
+python-telegram-bot = "13.2"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
