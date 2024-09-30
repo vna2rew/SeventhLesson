@@ -3,10 +3,6 @@ import ptbot
 from dotenv import load_dotenv
 from pytimeparse import parse
 
-load_dotenv()
-TG_TOKEN = os.getenv('BOT_TOKEN')
-
-
 def reply(chat_id, text):
     sec = parse(text)
     message_id = bot.send_message(chat_id, "Запускаю таймер...")
@@ -29,13 +25,11 @@ def render_progressbar(total, iteration, prefix='', suffix='', length=30, fill='
     filled_length = int(length * iteration // total)
     pbar = fill * filled_length + zfill * (length - filled_length)
     return '{0} |{1}| {2}% {3}'.format(prefix, pbar, percent, suffix)
-
-
-def main():
-    bot.reply_on_message(reply)
-    bot.run_bot()
-
+    
 
 if __name__ == '__main__':
-    bot = ptbot.Bot(TG_TOKEN)
-    main()
+    load_dotenv()
+    token = os.getenv('BOT_TOKEN')
+    bot = ptbot.Bot(token)
+    bot.reply_on_message(reply)
+    bot.run_bot()
